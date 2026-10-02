@@ -1,1 +1,0 @@
-# Understanding the Layered Architecture, What is it and why we need 
