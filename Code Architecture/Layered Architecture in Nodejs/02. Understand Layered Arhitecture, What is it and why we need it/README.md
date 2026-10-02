@@ -26,5 +26,41 @@ Now from above business logic example of our product operation we access the dat
 ### Database Layer 
 All the Schemas, Model and Configuration and other Operation related to Database handle as responsibility in this database layer. 
 
+## Comparing Normal Architecture and Layered Architecture 
+Let's comparing why layered architecture is more superior on normal architecture  
+
+### Normal Architecture "Mainly MVC Architecture" 
+This Normal Architecture contains 3 layers which are **Router** -> **Controller** -> **Model** 
+```
+Data Flow of Normal Architecture: 
+            Router (Handles routes)
+                        | 
+            Controller (Orchestrate request and response) 
+                        | 
+            Model (Contains business logic)  
+
+In this architecture our app flow is: 
+ - First we have server/app file where our server and database setup 
+ - Second we have routes to navigate different routes of our application like api/v1/users, api/v1/auth etc. 
+ - Third after routing application request and response cycle is handle by controllers which have business logic and data access in one only no separation  
+ - Fourth we have database layer in which we create schema and model of our applications 
+```
+
+### Layered Architecture 
+As we understand layered architecture is more better to organize and maintain our application. We can understand work flow of application easily when our software grows. 
+
+```
+Data Flow of Layered Architecture 
+              Router (handles routes of application) 
+                              | 
+              Controller (Orchestrate request and response) 
+                              | 
+              Service (Contains the business logic) 
+                              | 
+              Repository (Handles operation related to DB Access) 
+                              | 
+              Database (Configure and store Data)
+```
+
 
 
