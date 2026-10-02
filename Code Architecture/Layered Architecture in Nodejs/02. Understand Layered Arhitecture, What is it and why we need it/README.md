@@ -502,6 +502,43 @@ Although we can create multiple components within each layer, we should maintain
 Layered architecture is not just about separating files into folders; it is about organizing responsibilities and defining how different parts of an application communicate to build maintainable, reusable, and production-ready software.
 
 
+## Layered Architecture – Key Points for Interview Preparation
+
+### 1. Separation of Concerns
+Each layer has a clearly defined responsibility, keeping business logic, request handling, and data access separate.
+
+### 2. Unidirectional Dependency Flow
+In a traditional layered architecture, dependencies generally flow from the top layer to the bottom layer, helping maintain a clear structure and reducing unnecessary coupling.
+
+### 3. Maintainability
+Changes within one layer can often be made with minimal impact on other layers, provided the interfaces between them remain stable.
+
+### 4. Reusability
+Business logic and data access operations can be reused across multiple interfaces, controllers, or application workflows.
+
+### 5. Testability
+Each layer can be tested independently using unit tests, mocks, and stubs, making it easier to identify and isolate issues.
+
+### 6. Scalability and Extensibility
+New features and functionality can be introduced by extending individual layers without unnecessarily modifying the entire application.
+
+### 7. Loose Coupling
+Well-designed layers communicate through clearly defined interfaces, reducing dependencies on specific implementations.
+
+### 8. Improved Collaboration
+Clear separation of responsibilities allows multiple developers to work on different layers or modules with fewer conflicts.
+
+### 9. Easier Debugging
+Since each layer has a specific responsibility, developers can isolate issues more efficiently by tracing the request flow.
+
+### 10. Flexibility
+Infrastructure components, such as database implementations or external services, can be replaced with less impact on business logic when appropriate abstractions are used.
+
+---
+
+## Interview Summary
+
+**Layered Architecture is a software architectural pattern that separates an application into distinct layers, each responsible for a specific concern. It promotes separation of concerns, maintainability, testability, reusability, and loose coupling by establishing clear boundaries between presentation, business logic, and data access.**
 
 
 
