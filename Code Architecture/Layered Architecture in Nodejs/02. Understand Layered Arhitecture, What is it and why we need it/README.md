@@ -62,5 +62,35 @@ Data Flow of Layered Architecture
               Database (Configure and store Data)
 ```
 
+## Which SOLID Principles can we used in this Architecture ? 
+In Layered Architecture we are using Main three SOLID Principles 
+1. **Single Responsibility Principle (SRP)** 
+2. **Dependency Inversion Principle (DIP)** 
+3. **Open/Closed Principle (OCP)**
+
+
+### What and How Single Responsibility Principle (SRP) is used here ? 
+The **Single Responsibility Principle (SRP)** states that a class, module, or function should have only one reason to change meaning it should perform only a single job or responsibility. 
+
+**Example**: In our architecture service layer only contains responsibility according to business logic or Router layer contains only responsibility of routes only no other.  
+
+### What and How Single Responsibility Dependency Inversion Principle (DIP) is used here ? 
+The **Dependency Inversion Principle (DIP)** is a software design rule that helps to decouple **High level business logic** from **Low Level Implementation** details. 
+
+**High level modules** should not depend on **low level modules**, both should depend on abstractions (like interfaces).
+
+**Abstractions** should not depend on details instead details should be depend on abstractions.  
+
+**Example**: in our Layered architecture, **Service Layer** (***High Level Modules***) which contains Business logic is not depend on  **Frame-work layer** (like Nodejs, Nestjs or other language framework) or  **Database Layer** (***Low level Modules***) which contains the data storage or configuration of db.  
+
+### What and How Open/Closed Responsibility Principle (OCP) is used here ? 
+The **Open Closed Principle (OCP)** states that software entities like classes, modules, and functions should be open for extension (new features) but closed for modification. 
+
+**Example**: In our Application the **service layer** is open for extension means open for adding new features and  close for modification of implementation. 
+
+
+
+
+
 
 
