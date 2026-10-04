@@ -23,4 +23,29 @@ console.log(user);
 
 // user = ["Kratik Vyas", 29] It give error warning because doesn't consist of third type of our array 
 
+
+// Case One : When we have to create specific array mainly for RGB than we use Tuples 
+type RGB = [number, number, number]; 
+
+const redRgbValue: RGB = [255, 0, 0]; 
+
+console.log(redRgbValue); 
+
+// Case Two: When we want specific coordinates for any location 
+
+type Coordinates = readonly [number, number]; 
+
+const indiaCoordinate:Coordinates = [ 20.5937, 78.9629]; 
+
+console.log(indiaCoordinate); 
+
+/**
+ * Summary: Tuples which give more type hold on our arrays and also give specific array hold  
+ *  - It provide the fixed length to our array  
+ *  - It help to constraint for strongly type position.   
+ *
+ */
+
+
+
 export {}
