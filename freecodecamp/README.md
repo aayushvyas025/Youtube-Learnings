@@ -1,3 +1,3 @@
-# Youtube Learnings
+# Freecodecamp
 
-All the learnings of youtube tech videos and playlist with source codes are kept in this repository.
+This directory contains all the learning and source code of freecodecamp youtube channel tutorials
