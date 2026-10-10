@@ -236,7 +236,7 @@ type Shape = Circle | Rectangle | Square
 
 function getTrueShape(shape: Shape) { 
     if(shape.kind === 'circle') {
-      return Math.PI * shape.radius * 2; 
+      return Math.PI * shape.radius ** 2; 
     } else if(shape.kind === 'square') {
         return shape.side ** 2; 
     } else {
@@ -270,5 +270,30 @@ function handleApiResponse(response: ApiResponse) {
 
 /**
  * ? 6th. Exhaustiveness Checking (never)  
- *  - Typescript exhaustiveness checking ensures that every possible cases of a discriminated  
- */
+ *  - Typescript exhaustiveness checking ensures that every possible cases of a discriminated union, enum, or string literal type is handled within your conditional logic (like switch or if/else statement). 
+ *  
+ *  - It allows the Typescript compiler to catch bug at compile-time when a new member is added to a type but left unhandled in the code.  
+ * 
+ * - Here the `never` type which represented a state that should be impossible to reach    
+ */ 
+
+// Example of Exhaustiveness checking - Here we are using interfaces of Circle, Square, and Rectangle and type Shape from discriminated type 
+
+function getArea(shape: Shape) {
+    switch(shape.kind) {
+        case "circle" : 
+         return Math.PI * shape.radius ** 2 ; 
+         
+         case 'square': 
+         return shape.side * shape.side; 
+
+         case 'rectangle': 
+         return shape.length * shape.width; 
+
+         // Here we have another case assume that Triangle so if we don't add so we have implement exhaustive-check so which represent impossible to reach state 
+         default: 
+         const _exhaustiveCheck:never = shape 
+         return _exhaustiveCheck;  
+
+    } 
+}
