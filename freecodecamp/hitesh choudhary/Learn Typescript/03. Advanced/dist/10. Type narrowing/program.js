@@ -31,12 +31,75 @@ function userId(id) {
     return id.toFixed(2);
 }
 function isAdminAccount(account) {
-    // in operator helps to check the specific property exist or not 
-    if ('isAdmin' in account) {
+    // in operator helps to check the specific property exist or not
+    if ("isAdmin" in account) {
         return `Admin account `;
     }
     return `User account`;
 }
-const user = isAdminAccount({ name: 'Aayush Vyas', email: 'admin@email.com', isAdmin: true });
+const user = isAdminAccount({
+    name: "Aayush Vyas",
+    email: "admin@email.com",
+    isAdmin: true,
+});
 console.log(user);
+function move(animal) {
+    if ("fly" in animal) {
+        return animal.fly();
+    }
+    if ("run" in animal) {
+        return animal.run();
+    }
+    return animal.swim();
+}
+/**
+ * ? instanceof guard
+ *  - instanceof guard used for narrowing down objects that were constructed with a specific class or constructor function
+ */
+function formatLog(date) {
+    // Here it checks that date params is instance of Date class or not
+    if (date instanceof Date) {
+        console.log(date.toUTCString());
+    }
+    else {
+        console.log(date.trim());
+    }
+}
+class VegFood {
+    title;
+    price;
+    type;
+    isVeg;
+    constructor(title, price, type, isVeg) {
+        this.title = title;
+        this.price = price;
+        this.type = type;
+        this.isVeg = isVeg;
+    }
+}
+class NonVegFood {
+    title;
+    price;
+    type;
+    isNonVeg;
+    constructor(title, price, type, isNonVeg) {
+        this.title = title;
+        this.price = price;
+        this.type = type;
+        this.isNonVeg = isNonVeg;
+    }
+}
+class FoodOrder {
+    order = [];
+    userOrder(item) {
+        if (item instanceof NonVegFood || item instanceof VegFood) {
+            this.order.push(item);
+        }
+    }
+}
+const order = new FoodOrder();
+const paneer = new VegFood("Paneer Tikka", 200, "Starter", true);
+const chicken = new NonVegFood("Chicken Biryani", 300, "Main Course", true);
+order.userOrder(paneer);
+order.userOrder(chicken);
 //# sourceMappingURL=program.js.map

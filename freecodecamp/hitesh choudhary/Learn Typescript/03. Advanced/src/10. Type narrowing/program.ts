@@ -36,32 +36,108 @@ function userId(id: number | string | null) {
 }
 
 /**
- * ? The in operator Guard 
- *  - Used to check if an object contains a specific property, allowing you to narrow down the custom object shapes or interfaces. 
+ * ? The in operator Guard
+ *  - Used to check if an object contains a specific property, allowing you to narrow down the custom object shapes or interfaces.
  */
 
 interface User {
-    name: string; 
-    email: string; 
+  name: string;
+  email: string;
 }
 
 interface Admin {
-    name: string; 
-    email: string; 
-    isAdmin: boolean
+  name: string;
+  email: string;
+  isAdmin: boolean;
 }
 
-
 function isAdminAccount(account: User | Admin) {
-    // in operator helps to check the specific property exist or not 
-    if('isAdmin' in account) {
-        return `Admin account `
+  // in operator helps to check the specific property exist or not
+  if ("isAdmin" in account) {
+    return `Admin account `;
+  }
+
+  return `User account`;
+}
+
+const user = isAdminAccount({
+  name: "Aayush Vyas",
+  email: "admin@email.com",
+  isAdmin: true,
+});
+
+console.log(user);
+
+interface Bird {
+  fly: () => void;
+}
+
+interface Fish {
+  swim: () => void;
+}
+
+interface Animal {
+  run: () => void;
+}
+
+function move(animal: Bird | Fish | Animal) {
+  if ("fly" in animal) {
+    return animal.fly();
+  }
+
+  if ("run" in animal) {
+    return animal.run();
+  }
+
+  return animal.swim();
+}
+
+/**
+ * ? instanceof guard
+ *  - instanceof guard used for narrowing down objects that were constructed with a specific class or constructor function
+ */
+
+function formatLog(date: Date | string) {
+  // Here it checks that date params is instance of Date class or not
+  if (date instanceof Date) {
+    console.log(date.toUTCString());
+  } else {
+    console.log(date.trim());
+  }
+}
+
+class VegFood {
+  constructor(
+    public title: string,
+    public price: number,
+    public type: string,
+    public isVeg: boolean
+  ) {}
+}
+
+class NonVegFood {
+  constructor(
+    public title: string,
+    public price: number,
+    public type: string,
+    public isNonVeg: boolean
+  ) {}
+}
+
+class FoodOrder<T> {
+  private order: T[] = [];
+
+  userOrder(item: T) {
+    if (item instanceof NonVegFood || item instanceof VegFood) {
+      this.order.push(item);
     }
+  }
+}
 
-    return `User account`
-} 
+const order = new FoodOrder<VegFood | NonVegFood>();
 
+const paneer = new VegFood("Paneer Tikka", 200, "Starter", true);
+const chicken = new NonVegFood("Chicken Biryani", 300, "Main Course", true);
 
-const user = isAdminAccount({name:'Aayush Vyas', email:'admin@email.com', isAdmin: true})
-
-console.log(user); 
+order.userOrder(paneer);
+order.userOrder(chicken);
