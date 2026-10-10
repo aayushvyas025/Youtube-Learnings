@@ -102,4 +102,43 @@ const paneer = new VegFood("Paneer Tikka", 200, "Starter", true);
 const chicken = new NonVegFood("Chicken Biryani", 300, "Main Course", true);
 order.userOrder(paneer);
 order.userOrder(chicken);
+/**
+ * ? Type predicate - User defined type Guards
+ *  - Type predicate is a special return type annotation in typescript used to create user-defined type guards
+ *  - It instructs the compiler that if a function return true, the checked variable can be safely treated as a specific, narrower type within that conditional scope.
+ *
+ *  ? Syntax
+ *  Instead of annotating the function to return a plain boolean, you use the `parameterName` is `Type`
+ */
+/**
+ * Example of type predicate
+ */
+function isNumber(value) {
+    return typeof value === 'number';
+}
+/**
+ * Here, we asserted that value should be number and return boolean value
+ */
+const numberCheck = isNumber(255);
+console.log(numberCheck); // Output: true  
+function isString(str) {
+    return typeof str === 'string';
+}
+function greetToEveryone(person) {
+    // This condition only valid when argument is string 
+    if (isString(person)) {
+        console.log(`Hello, How's the day is going ${person}`);
+    }
+}
+function isCat(animal) {
+    return "meow" in animal;
+}
+function handleAnimal(pet) {
+    if (isCat(pet)) {
+        pet.meow();
+    }
+    else {
+        pet.bark();
+    }
+}
 //# sourceMappingURL=program.js.map
