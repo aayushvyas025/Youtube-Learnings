@@ -141,4 +141,15 @@ function handleAnimal(pet) {
         pet.bark();
     }
 }
+function getTrueShape(shape) {
+    if (shape.kind === 'circle') {
+        return Math.PI * shape.radius * 2;
+    }
+    else if (shape.kind === 'square') {
+        return shape.side ** 2;
+    }
+    else {
+        shape.length * shape.width;
+    }
+}
 //# sourceMappingURL=program.js.map

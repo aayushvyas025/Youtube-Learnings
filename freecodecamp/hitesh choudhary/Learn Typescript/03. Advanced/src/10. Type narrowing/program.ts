@@ -207,4 +207,39 @@ function handleAnimal(pet: Cat | Dog) {
          pet.bark()
     }
 
+} 
+
+/**
+ * ? Exhaustiveness Checking (never)  
+ *  -  
+ */
+
+interface Circle {
+    kind: 'circle';  
+    radius: number; 
+} 
+
+interface Square {
+    kind: 'square'; 
+    side: number; 
 }
+
+interface Rectangle {
+    kind: 'rectangle'; 
+    length: number; 
+    width: number
+}
+
+type Shape = Circle | Rectangle | Square 
+
+function getTrueShape(shape: Shape) { 
+    if(shape.kind === 'circle') {
+      return Math.PI * shape.radius * 2; 
+    } else if(shape.kind === 'square') {
+        return shape.side ** 2; 
+    } else {
+        shape.length * shape.width; 
+    }
+}
+
+
