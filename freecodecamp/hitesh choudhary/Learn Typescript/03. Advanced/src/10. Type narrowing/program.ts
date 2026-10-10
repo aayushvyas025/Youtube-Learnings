@@ -36,7 +36,7 @@ function userId(id: number | string | null) {
 }
 
 /**
- * ? The in operator Guard
+ * ?  2nd.  The in operator Guard
  *  - Used to check if an object contains a specific property, allowing you to narrow down the custom object shapes or interfaces.
  */
 
@@ -93,7 +93,7 @@ function move(animal: Bird | Fish | Animal) {
 }
 
 /**
- * ? instanceof guard
+ * ? 3rd. instanceof guard
  *  - instanceof guard used for narrowing down objects that were constructed with a specific class or constructor function
  */
 
@@ -143,7 +143,7 @@ order.userOrder(paneer);
 order.userOrder(chicken);
 
 /**
- * ? Type predicate - User defined type Guards   
+ * ?  4th. Type predicate - User defined type Guards   
  *  - Type predicate is a special return type annotation in typescript used to create user-defined type guards 
  *  - It instructs the compiler that if a function return true, the checked variable can be safely treated as a specific, narrower type within that conditional scope.   
  * 
@@ -209,23 +209,25 @@ function handleAnimal(pet: Cat | Dog) {
 
 } 
 
+
 /**
- * ? Exhaustiveness Checking (never)  
- *  -  
+ * ? 5th. Discriminated Unions (Tagged Unions)  
+ *  - When working with complex object shapes, you can give each type a shared literal property - often called `type`, `kind` or `status` tag. Typescript instantly narrows the whole object when you evaluate that specific property. 
  */
 
+// Example One 
 interface Circle {
-    kind: 'circle';  
+    kind: 'circle';    // discriminated tag 
     radius: number; 
 } 
 
 interface Square {
-    kind: 'square'; 
+    kind: 'square';  // discriminated tag 
     side: number; 
 }
 
 interface Rectangle {
-    kind: 'rectangle'; 
+    kind: 'rectangle'; // discriminated tag 
     length: number; 
     width: number
 }
@@ -242,4 +244,31 @@ function getTrueShape(shape: Shape) {
     }
 }
 
+// Example Second 
 
+interface SuccessResponse {
+    status: 'success'; 
+    data: string; 
+}
+
+interface ErrorResponse {
+    status: 'error'; 
+    data: string 
+}
+
+
+type ApiResponse = SuccessResponse | ErrorResponse 
+
+function handleApiResponse(response: ApiResponse) {
+    if(response.status === 'error') {
+        console.log(response.data)
+    }
+
+    console.log(response.data)
+}
+
+
+/**
+ * ? 6th. Exhaustiveness Checking (never)  
+ *  - Typescript exhaustiveness checking ensures that every possible cases of a discriminated  
+ */

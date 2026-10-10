@@ -53,7 +53,7 @@ function move(animal) {
     return animal.swim();
 }
 /**
- * ? instanceof guard
+ * ? 3rd. instanceof guard
  *  - instanceof guard used for narrowing down objects that were constructed with a specific class or constructor function
  */
 function formatLog(date) {
@@ -103,7 +103,7 @@ const chicken = new NonVegFood("Chicken Biryani", 300, "Main Course", true);
 order.userOrder(paneer);
 order.userOrder(chicken);
 /**
- * ? Type predicate - User defined type Guards
+ * ?  4th. Type predicate - User defined type Guards
  *  - Type predicate is a special return type annotation in typescript used to create user-defined type guards
  *  - It instructs the compiler that if a function return true, the checked variable can be safely treated as a specific, narrower type within that conditional scope.
  *
@@ -152,4 +152,14 @@ function getTrueShape(shape) {
         shape.length * shape.width;
     }
 }
+function handleApiResponse(response) {
+    if (response.status === 'error') {
+        console.log(response.data);
+    }
+    console.log(response.data);
+}
+/**
+ * ? 6th. Exhaustiveness Checking (never)
+ *  - Typescript exhaustiveness checking ensures that every possible cases of a discriminated
+ */ 
 //# sourceMappingURL=program.js.map
