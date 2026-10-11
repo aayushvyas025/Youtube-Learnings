@@ -91,7 +91,7 @@ class ToolService {
         });
       }
     }
-    return results;
+    return result;
   }
 
   async getAllTools(filters = {}, option = {}) {
