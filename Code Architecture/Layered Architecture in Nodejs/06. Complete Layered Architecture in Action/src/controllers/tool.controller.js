@@ -88,6 +88,9 @@ class ToolController {
       );
     } catch (error) {
       console.error(`Error, while fetching tool by name: ${error.message}`);
+       return response
+        .status(500)
+        .json({ success: false, message: `Internal Server Error` });
     }
   }
 }
