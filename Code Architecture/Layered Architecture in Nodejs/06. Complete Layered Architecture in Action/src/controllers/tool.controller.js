@@ -5,8 +5,12 @@ const constants = require("../constants/index.constant");
 const { responseMessages } = constants;
 
 class ToolController {
-  constructor() {
-    this.toolService = new ToolService();
+  constructor(toolService) {
+    // this.toolService = new ToolService(); 
+    //! When we instantiate ToolService which means this controller depends on ToolService that means higher module depends to lower modules so it's doesn't follow the Solid D 'DIP' principle   
+
+    // Correct logic for DIP : 
+    this.toolService = toolService // Now this is not depend on Service Layer  
   }
 
   async getAllTools(request, response) {

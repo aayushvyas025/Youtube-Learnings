@@ -1,8 +1,7 @@
-const ToolRepository = require("../repositories/tool.repository");
-
 class ToolService {
-  constructor() {
-    this.toolRepository = new ToolRepository();
+  constructor(toolRepository) {
+    // this.toolRepository = new ToolRepository();
+    this.toolRepository = toolRepository; 
   }
 
   async findToolByName(name) {
