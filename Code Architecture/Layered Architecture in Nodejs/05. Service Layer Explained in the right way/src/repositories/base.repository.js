@@ -51,7 +51,7 @@ class BaseRepository {
       ...options,
     };
 
-    return await this.model.updateById(
+    return await this.model.findByIdAndUpdate(
       id,
       { ...updatedData, updatedAt: Date.now() },
       defaultOptions,
@@ -59,7 +59,7 @@ class BaseRepository {
   }
 
   async deleteById(id) {
-    return await this.model.deleteById(id);
+    return await this.model.findByIdAndDelete(id);
   }
 
   async count(filter = {}) {
