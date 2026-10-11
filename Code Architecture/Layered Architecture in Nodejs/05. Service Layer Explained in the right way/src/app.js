@@ -10,7 +10,7 @@ app.use(
   cors({
     origin: config.cors.origin,
     credentials: config.cors.credentials,
-    method: config.cors.method,
+    methods: config.cors.method,
   }),
 );
 
