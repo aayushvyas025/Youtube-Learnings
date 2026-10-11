@@ -1,0 +1,27 @@
+const httpStatus = Object.freeze({
+  // success code
+  OK: 200,
+  CREATED: 201,
+  ACCEPTED: 202,
+  NO_CONTENT: 204,
+  MULTI_STATUS: 207,
+
+  // client status code
+  BAD_REQUEST: 400,
+  UN_AUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  METHOD_NOT_ALLOWED: 405,
+  CONFLICT: 409,
+  TOO_MANY_REQUEST: 429,
+  UNPROCESSABLE_ENTITY: 422,
+
+  // server status code
+  INTERNAL_SERVER_ERROR: 500,
+  NOT_IMPLEMENTED: 501,
+  BAD_GATEWAY: 502,
+  SERVICE_UNAVAILABLE: 503,
+  GATEWAY_TIMEOUT: 504,
+});
+
+module.exports = httpStatus;
