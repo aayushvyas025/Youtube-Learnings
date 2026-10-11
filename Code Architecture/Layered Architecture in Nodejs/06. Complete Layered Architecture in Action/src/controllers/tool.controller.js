@@ -1,4 +1,8 @@
 const ToolService = require("../services/tool.service");
+const ApiResponse = require("../utils/apiResponse.util");
+const constants = require("../constants/index.constant");
+
+const { responseMessages } = constants;
 
 class ToolController {
   constructor() {
@@ -27,23 +31,22 @@ class ToolController {
         tools = await this.toolService.getAllTools(filters, options);
       }
 
-      return response.status(200).json({
-        success: true,
-        message: "Fetch all tools successfully",
-        data: tools,
+      return ApiResponse.ok(response, tools, responseMessages.FETCHED, {
+        count: tools.length,
       });
     } catch (error) {
       console.error(`Error to fetch all tools: ${error.message}`);
-      return response
-        .status(500)
-        .json({ success: false, message: `Internal Server Error` });
+      return ApiResponse.error(
+        response,
+        responseMessages.ERROR.INTERNAL,
+        error,
+      );
     }
   }
 
   async createTools(request, response) {
     try {
-      const toolData =
-        request.body;
+      const toolData = request.body;
 
       const newTool = await this.toolService.createNewTool(toolData);
 
@@ -81,11 +84,11 @@ class ToolController {
       );
     } catch (error) {
       console.error(`Error, while fetching tool by name: ${error.message}`);
-       return response
+      return response
         .status(500)
         .json({ success: false, message: `Internal Server Error` });
     }
   }
 }
 
-module.exports = ToolController; 
+module.exports = ToolController;
