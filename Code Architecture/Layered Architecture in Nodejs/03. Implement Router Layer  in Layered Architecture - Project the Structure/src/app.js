@@ -1,9 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const config = require("./constants/configs.constant");
 const appRoutes = require("./routes/index.route");
-
+const constants = require("./constants/configs.constant")
 const app = express();
+
+const {config} = constants;
 
 app.use(
   cors({

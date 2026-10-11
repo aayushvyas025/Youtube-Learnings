@@ -12,7 +12,7 @@ const config = {
   cors: {
     origin: process.env.CORS_ORIGIN,
     credentials: true,
-    method: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   },
 };
 
