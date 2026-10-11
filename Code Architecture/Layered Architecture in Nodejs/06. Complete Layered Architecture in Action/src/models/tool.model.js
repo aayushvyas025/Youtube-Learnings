@@ -19,7 +19,7 @@ const toolSchema = new mongoose.Schema(
       required: true,
       trim: true,
       enum: {
-        value: [
+        values: [
           "IDE",
           "API_TOOL",
           "VERSION_CONTROL",

@@ -42,17 +42,10 @@ class ToolController {
 
   async createTools(request, response) {
     try {
-      const { name, description, isPopular, category, url, tags } =
+      const toolData =
         request.body;
 
-      const newTool = await this.toolService.createNewTool({
-        name,
-        description,
-        isPopular,
-        category,
-        url,
-        tags,
-      });
+      const newTool = await this.toolService.createNewTool(toolData);
 
       return response.status(201).json({
         success: true,
@@ -94,3 +87,5 @@ class ToolController {
     }
   }
 }
+
+module.exports = ToolController; 

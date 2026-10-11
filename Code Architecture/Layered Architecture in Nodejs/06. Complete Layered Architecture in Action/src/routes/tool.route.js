@@ -1,7 +1,10 @@
-const router = require('express').Router(); 
+const router = require("express").Router();
+const ToolController = require("../controllers/tool.controller");
 
-router.get('/', (request, response) => {
-    response.json({success: true, message:'tool api is working'})
-})
+const toolController = new ToolController();
 
-module.exports = router; 
+router.get("/", toolController.getAllTools);
+router.get("/tool/name", toolController.getToolByName);
+router.post("/tool/create", toolController.createTools);
+
+module.exports = router;
